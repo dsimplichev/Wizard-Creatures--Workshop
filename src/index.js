@@ -16,10 +16,7 @@ app.set('view engine', "hbs");
 app.set('views', "src/views");
 
 //Routes
-app.get("/", (req, res) =>{
-    
-    res.render("home");
-});
+
 
 
 
