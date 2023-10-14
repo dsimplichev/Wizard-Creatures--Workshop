@@ -11,7 +11,7 @@ app.use(express.static(path.resolve(__dirname, "./public")))
 app.use(express.urlencoded({ extended: false}));
 
 //Handlebars config
-app.engine('hbs', handlebars.engine({ extnam: "hbs"}));
+app.engine('hbs', handlebars.engine({ extname: "hbs"}));
 app.set('view engine', "hbs");
 app.set('views', "src/views");
 
@@ -25,4 +25,4 @@ app.get("/", (req, res) =>{
 
 app.use(routes)
 
-app.listen(PORT, () => console.log(`Server is listening on port; ${PORT}`));
+app.listen(PORT, () => console.log(`Server is listening on port: ${PORT}`));
