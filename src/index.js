@@ -1,8 +1,9 @@
 const express = require("express");
 const path = require("path");
 const handlebars = require("express-handlebars");
+const mongoose = require("mongoose");
 
-const { PORT } = require("./constants");
+const { PORT, DB_URL } = require("./constants");
 const routes = require("./router");
 
 const app = express();
@@ -15,7 +16,18 @@ app.engine('hbs', handlebars.engine({ extname: "hbs"}));
 app.set('view engine', "hbs");
 app.set('views', "src/views");
 
-//Routes
+async function dbConnect() {
+    await mongoose.connect(DB_URL);
+
+}
+
+dbConnect()
+.then(() => {
+    console.log("Successfully connected to the DB!");
+})
+.catch(err => 
+console.log(`Error while connecting to the DB. Error: ${err}`)
+);
 
 
 
