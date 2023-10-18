@@ -3,7 +3,7 @@ const path = require("path");
 const handlebars = require("express-handlebars");
 const mongoose = require("mongoose");
 
-const { PORT, DB_URL } = require("./constants");
+const { PORT, DB_URL, SECRET } = require("./constants");
 const routes = require("./router");
 
 const app = express();
